@@ -1,0 +1,38 @@
+# name: Next.js CI/CD
+
+# on:
+#   push:
+#     branches:
+#       - master
+#   pull_request:
+#     branches:
+#       - master
+
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v2
+
+#     - name: Set up Node.js
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: '18'
+
+#     - name: Install dependencies
+#       run: |
+#         cd devops/frontend
+#         npm install
+
+#     - name: Build Next.js app
+#       run: |
+#         cd devops/frontend
+#         npm run build
+
+#     - name: Run hello World
+#       run: |
+#         cd devops/frontend
+#         node hello_world.js
