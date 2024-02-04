@@ -1,38 +1,37 @@
-# name: Next.js CI/CD
+name: Next.js CI/CD
 
-# on:
-#   push:
-#     branches:
-#       - master
-#   pull_request:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
-# jobs:
-#   build:
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-#     steps:
-#     - name: Checkout repository
-#       uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
 
-#     - name: Set up Node.js
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: '18'
+      - name: Install dependencies
+        run: |
+          cd fitconnect/frontend
+          npm install
 
-#     - name: Install dependencies
-#       run: |
-#         cd devops/frontend
-#         npm install
+      - name: Build Next.js app
+        run: |
+          cd fitconnect/frontend
+          npm run build
 
-#     - name: Build Next.js app
-#       run: |
-#         cd devops/frontend
-#         npm run build
-
-#     - name: Run hello World
-#       run: |
-#         cd devops/frontend
-#         node hello_world.js
+    #   - name: Run hello World
+    #     run: |
+    #       cd fitconnect/frontend
+    #       node hello_world.js
