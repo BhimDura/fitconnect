@@ -2,7 +2,6 @@ from playwright.sync_api import sync_playwright
 
 
 class YoutubeScraper:
-
     def __init__(self):
         self.base_url = "https://www.youtube.com/results?search_query="
 
@@ -23,10 +22,7 @@ class YoutubeScraper:
                 href = video_tag.get_attribute("href")
                 video_url = "https://www.youtube.com" + href
 
-                videos.append({
-                    'title': video_title,
-                    'url': video_url
-                })
+                videos.append({"title": video_title, "url": video_url})
 
             browser.close()
 
@@ -40,4 +36,3 @@ if __name__ == "__main__":
 
     for video in videos:
         print(f"Title: {video['title']}, URL: {video['url']}")
-

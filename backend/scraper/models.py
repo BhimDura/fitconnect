@@ -1,9 +1,11 @@
 from django.db import models
+
 from main.models import BaseModel
 
 
 class ScrapeRun(BaseModel):
     date_run = models.DateTimeField()
+
 
 class ScrapedVideo(BaseModel):
     scrape_run = models.ForeignKey(ScrapeRun, on_delete=models.CASCADE)
