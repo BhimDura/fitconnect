@@ -7,4 +7,4 @@ COPY ./backend /app
 RUN pip install -r backend/requirements.txt
 
 
-CMD ["sh", "-c", "python /app/manage.py migrate && python /app/manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "python /app/backend/manage.py migrate && python /app/backend/manage.py runserver 0.0.0.0:8000"]
